@@ -8,3 +8,7 @@ export const nextApp = next({
 });
 
 export const nextHandler = nextApp.getRequestHandler();
+
+//Here, next() is a function provided by the next package.
+//It's initializing an instance of the Next.js server, which you can then further configure
+//and start to run your Next.js application.

@@ -1,10 +1,10 @@
 import React from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
-import { Icons } from "./icons";
+import { Icons } from "./Icons";
 import { NavItems } from "./NavItems";
 import { buttonVariants } from "./ui/button";
-import { Cart } from "./cart";
+import { Cart } from "./Cart";
 
 export const Navbar = () => {
   const user = null;

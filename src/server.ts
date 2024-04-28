@@ -1,8 +1,8 @@
 import express from "express";
 import { getPayloadClient } from "./get-payload";
 import { nextApp, nextHandler } from "./next-utils";
-// import * as trpcExpress from "@trpc/server/adapters/express";
-// import { appRouter } from "./trpc";
+import * as trpcExpress from "@trpc/server/adapters/express";
+import { appRouter } from "./trpc";
 // import { inferAsyncReturnType } from "@trpc/server";
 import bodyParser from "body-parser";
 import { IncomingMessage } from "http";
@@ -15,10 +15,10 @@ import { parse } from "url";
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
-// const createContext = ({ req, res }: trpcExpress.CreateExpressContextOptions) => ({
-//   req,
-//   res,
-// });
+const createContext = ({ req, res }: trpcExpress.CreateExpressContextOptions) => ({
+  req,
+  res,
+});
 
 // export type ExpressContext = inferAsyncReturnType<typeof createContext>;
 
@@ -56,11 +56,15 @@ const start = async () => {
 
     return;
   }
-
+  ///Initialization, This router will handle all routes related to the shopping cart
+  //functionality.
   const cartRouter = express.Router();
 
+  // applies a middleware
   cartRouter.use(payload.authenticate);
 
+  // this code defines a GET route for the path "/". When a GET request is made to "/cart",
+  // the function passed as the second argument will be executed
   cartRouter.get("/", (req, res) => {
     const request = req as PayloadRequest;
 
@@ -73,13 +77,13 @@ const start = async () => {
   });
 
   app.use("/cart", cartRouter);
-  // app.use(
-  //   "/api/trpc",
-  //   trpcExpress.createExpressMiddleware({
-  //     router: appRouter,
-  //     createContext,
-  //   })
-  // );
+  app.use(
+    "/api/trpc",
+    trpcExpress.createExpressMiddleware({
+      router: appRouter,
+      createContext,
+    })
+  );
 
   app.use((req, res) => nextHandler(req, res));
 
@@ -93,3 +97,10 @@ const start = async () => {
 };
 
 start();
+
+////NOTE/////
+
+// When you make an HTTP request, it usually consists of a request header and an
+// optional request body. The request body contains data that you want to send to
+// the server, such as form data, JSON, XML, or binary data. The "RawBody" specifically
+// refers to this data in its raw form, before any encoding or parsing.
