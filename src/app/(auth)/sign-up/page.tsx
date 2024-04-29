@@ -26,8 +26,6 @@ const Page = () => {
 
   const router = useRouter();
 
-  const { data } = trpc.anyApiRoute.useQuery();
-  console.log("data", data);
   // const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
   // onError: (err) => {
   //   if (err.data?.code === "CONFLICT") {
