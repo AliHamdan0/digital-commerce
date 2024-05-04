@@ -18,7 +18,8 @@ const Page = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
+    getValues,
   } = useForm<TAuthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   });
@@ -65,6 +66,19 @@ const Page = () => {
               Already have an account? Sign-in
               <ArrowRight className="h-4 w-4" />
             </Link>
+
+            {isSubmitSuccessful && (
+              <Link
+                className={buttonVariants({
+                  variant: "default",
+                  className: "gap-1.5 font-bold",
+                })}
+                href={`/verify-email?to=${getValues("email")}&&token=s3fg43f45ada342342342342354dfsdfsd`}
+              >
+                Click here to verify your email
+                <ArrowRight className="h-2 w-4" />
+              </Link>
+            )}
           </div>
 
           <div className="grid gap-6">

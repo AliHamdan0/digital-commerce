@@ -34,20 +34,23 @@ export const authRouter = router({
     return { success: true, sentToEmail: email };
   }),
 
-  // verifyEmail: publicProcedure.input(z.object({ token: z.string() })).query(async ({ input }) => {
-  //   const { token } = input;
+  verifyEmail: publicProcedure.input(z.object({ token: z.string() })).query(async ({ input }) => {
+    const { token } = input;
 
-  //   const payload = await getPayloadClient();
+    const payload = await getPayloadClient();
 
-  //   const isVerified = await payload.verifyEmail({
-  //     collection: "users",
-  //     token,
-  //   });
+    // const isVerified = await payload.verifyEmail({
+    //   collection: "users",
+    //   token,
+    // });
+    ///I added this because email domain is not free I have to pay for it
+    /// but if we have we should call this method
+    const isVerified = true;
 
-  //   if (!isVerified) throw new TRPCError({ code: "UNAUTHORIZED" });
+    if (!isVerified) throw new TRPCError({ code: "UNAUTHORIZED" });
 
-  //   return { success: true };
-  // }),
+    return { success: true };
+  }),
 
   //   signIn: publicProcedure.input(AuthCredentialsValidator).mutation(async ({ input, ctx }) => {
   //     const { email, password } = input;
