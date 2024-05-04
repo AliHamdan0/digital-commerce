@@ -22,6 +22,7 @@ export const authRouter = router({
     if (users.length !== 0) throw new TRPCError({ code: "CONFLICT" });
 
     await payload.create({
+      /// automatically send a verification email
       collection: "users",
       data: {
         email,

@@ -1,5 +1,4 @@
 "use client";
-
 import { Icons } from "@/components/Icons";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,30 +25,26 @@ const Page = () => {
 
   const router = useRouter();
 
-  // const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
-  // onError: (err) => {
-  //   if (err.data?.code === "CONFLICT") {
-  //     toast.error("This email is already in use. Sign in instead?");
-
-  //     return;
-  //   }
-
-  //   if (err instanceof ZodError) {
-  //     toast.error(err.issues[0].message);
-
-  //     return;
-  //   }
-
-  //   toast.error("Something went wrong. Please try again.");
-  // },
-  //     onSuccess: ({ sentToEmail }) => {
-  //       toast.success(`Verification email sent to ${sentToEmail}.`);
-  //       router.push("/verify-email?to=" + sentToEmail);
-  //     },
-  //   });
+  const { mutate } = trpc.auth.createPayloadUser.useMutation({
+    // onError: (err) => {
+    //   if (err.data?.code === "CONFLICT") {
+    //     toast.error("This email is already in use. Sign in instead?");
+    //     return;
+    //   }
+    //   if (err instanceof ZodError) {
+    //     toast.error(err.issues[0].message);
+    //     return;
+    //   }
+    //   toast.error("Something went wrong. Please try again.");
+    // },
+    //     onSuccess: ({ sentToEmail }) => {
+    //       toast.success(`Verification email sent to ${sentToEmail}.`);
+    //       router.push("/verify-email?to=" + sentToEmail);
+    //     },
+  });
 
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-    //  mutate({ email, password });
+    mutate({ email, password });
   };
 
   return (

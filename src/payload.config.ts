@@ -3,9 +3,8 @@ import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import path from "path";
-// import { Users } from "./collections/Users";
 import dotenv from "dotenv";
-import { Users } from "./app/collections/Users";
+import { Users } from "./collections/Users";
 // import { Products } from "./collections/Products/Products";
 // import { Media } from "./collections/Media";
 // import { ProductFiles } from "./collections/ProductFile";
@@ -17,7 +16,7 @@ dotenv.config({
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
-  collections: [Users],
+  collections: [Users], /// generate:types , takes the types from here
   routes: {
     admin: "/sell",
   },
@@ -37,6 +36,6 @@ export default buildConfig({
     url: process.env.MONGODB_URL!,
   }),
   typescript: {
-    outputFile: path.resolve(__dirname, "payload-types.ts"),
+    outputFile: path.resolve(__dirname, "payload-types.ts"), ///this is where we save all the generated types
   },
 });
