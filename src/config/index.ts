@@ -1,42 +1,42 @@
 export const PRODUCT_CATEGORIES = [
   {
-    label: "UI Kits",
-    value: "ui_kits" as const,
+    label: "Imported",
+    value: "imported" as const,
     featured: [
       {
-        name: "Editor picks",
-        href: `/products?category=ui_kits`,
+        name: "Fried picks",
+        href: `/products?category=imported`,
         imageSrc: "/nav/ui-kits/mixed.jpg",
       },
       {
-        name: "New Arrivals",
-        href: "/products?category=ui_kits&sort=desc",
+        name: "New Spicy",
+        href: "/products?category=imported&sort=desc",
         imageSrc: "/nav/ui-kits/blue.jpg",
       },
       {
         name: "Bestsellers",
-        href: "/products?category=ui_kits",
+        href: "/products?category=imported",
         imageSrc: "/nav/ui-kits/purple.jpg",
       },
     ],
   },
   {
-    label: "Icons",
-    value: "icons" as const,
+    label: "Local",
+    value: "local" as const,
     featured: [
       {
-        name: "Favorite Icon Picks",
-        href: `/products?category=icons`,
-        imageSrc: "/nav/icons/picks.jpg",
+        name: "Favorite Products Picks",
+        href: `/products?category=local`,
+        imageSrc: "/nav/icons/picks.webp",
       },
       {
         name: "New Arrivals",
-        href: "/products?category=icons&sort=desc",
+        href: "/products?category=local&sort=desc",
         imageSrc: "/nav/icons/new.jpg",
       },
       {
-        name: "Bestselling Icons",
-        href: "/products?category=icons",
+        name: "Bestselling Dishes",
+        href: "/products?category=local",
         imageSrc: "/nav/icons/bestsellers.jpg",
       },
     ],

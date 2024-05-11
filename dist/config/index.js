@@ -3,16 +3,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PRODUCT_CATEGORIES = void 0;
 exports.PRODUCT_CATEGORIES = [
     {
-        label: "UI Kits",
-        value: "ui_kits",
+        label: "Imported",
+        value: "imported",
         featured: [
             {
-                name: "Editor picks",
+                name: "Fried picks",
                 href: "/products?category=ui_kits",
                 imageSrc: "/nav/ui-kits/mixed.jpg",
             },
             {
-                name: "New Arrivals",
+                name: "New Spicy",
                 href: "/products?category=ui_kits&sort=desc",
                 imageSrc: "/nav/ui-kits/blue.jpg",
             },
@@ -24,13 +24,13 @@ exports.PRODUCT_CATEGORIES = [
         ],
     },
     {
-        label: "Icons",
-        value: "icons",
+        label: "Local",
+        value: "local",
         featured: [
             {
-                name: "Favorite Icon Picks",
+                name: "Favorite Products Picks",
                 href: "/products?category=icons",
-                imageSrc: "/nav/icons/picks.jpg",
+                imageSrc: "/nav/icons/picks.webp",
             },
             {
                 name: "New Arrivals",
@@ -38,7 +38,7 @@ exports.PRODUCT_CATEGORIES = [
                 imageSrc: "/nav/icons/new.jpg",
             },
             {
-                name: "Bestselling Icons",
+                name: "Bestselling Dishes",
                 href: "/products?category=icons",
                 imageSrc: "/nav/icons/bestsellers.jpg",
             },
