@@ -1,6 +1,6 @@
 import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { Icons } from "./Icons";
+import { Icons } from "./icons";
 import { NavItems } from "./NavItems";
 import { buttonVariants } from "./ui/button";
 import Cart from "./Cartp";
