@@ -17,12 +17,14 @@
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@react-email/components": "^0.0.17",
     "@trpc/client": "^11.0.0-rc.354",
     "@trpc/react-query": "^11.0.0-rc.354",
     "@trpc/server": "^11.0.0-rc.354",
+    "body-parser": "^1.20.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cross-env": "^7.0.3",
@@ -37,10 +39,12 @@
     "react-dom": "^18",
     "react-hook-form": "^7.51.3",
     "sonner": "^1.4.41",
+    "stripe": "^15.5.0",
     "swiper": "^11.1.1",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.4"
+    "zod": "^3.23.4",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
