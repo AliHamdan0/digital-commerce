@@ -3,7 +3,6 @@ import { getPayloadClient } from "./get-payload";
 import { nextApp, nextHandler } from "./next-utils";
 import * as trpcExpress from "@trpc/server/adapters/express";
 import { appRouter } from "./trpc";
-import { inferAsyncReturnType } from "@trpc/server";
 import bodyParser from "body-parser";
 import { IncomingMessage } from "http";
 import { stripeWebhookHandler } from "./webhooks";
@@ -20,7 +19,7 @@ const createContext = ({ req, res }: trpcExpress.CreateExpressContextOptions) =>
   res,
 });
 
-export type ExpressContext = inferAsyncReturnType<typeof createContext>;
+export type ExpressContext = Awaited<ReturnType<typeof createContext>>;
 
 export type WebhookRequest = IncomingMessage & {
   rawBody: Buffer;
@@ -30,6 +29,7 @@ const start = async () => {
   const webhookMiddleware = bodyParser.json({
     verify: (req: WebhookRequest, _, buffer) => {
       req.rawBody = buffer;
+      console.log("req", req.rawBody);
     },
   });
 
@@ -93,3 +93,4 @@ const start = async () => {
 };
 
 start();
+console.log("server is running");
