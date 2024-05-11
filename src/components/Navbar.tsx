@@ -3,7 +3,7 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Icons } from "./Icons";
 import { NavItems } from "./NavItems";
 import { buttonVariants } from "./ui/button";
-import Cart from "./Cart";
+import Cart from "./Cartp";
 import { getServerSideUser } from "@/lib/payload-utils";
 import { cookies } from "next/headers";
 import UserAccountNav from "./UserAccountNav";
